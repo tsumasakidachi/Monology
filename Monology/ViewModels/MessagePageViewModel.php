@@ -10,7 +10,7 @@ namespace Monology\ViewModels
     {
         private $MessageRepository;
 
-        public function __construct(\Stage\Auth\Authentication $auth, \Monology\Repositories\MessageRepository $mr)
+        public function __construct(\Stage\Auth\IAuthenticationService $auth, \Monology\Repositories\MessageRepository $mr)
         {
             parent::__construct($auth);
             $this->MessageRepository = $mr;

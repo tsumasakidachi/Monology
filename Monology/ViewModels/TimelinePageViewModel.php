@@ -11,7 +11,7 @@ namespace Monology\ViewModels
     {
         private $timelineService;
 
-        public function __construct(\Stage\Auth\Authentication $auth, Services\ITimelineService $mr)
+        public function __construct(\Stage\Auth\IAuthenticationService $auth, Services\ITimelineService $mr)
         {
             parent::__construct($auth);
             $this->timelineService = $mr;

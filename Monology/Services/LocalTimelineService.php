@@ -12,7 +12,7 @@ namespace Monology\Services
         private $auth;
         private $timelineRepository;
 
-        public function __construct(Auth\Authentication $auth, Repositories\TimelineRepository $tr)
+        public function __construct(Auth\IAuthenticationService $auth, Repositories\TimelineRepository $tr)
         {
             $this->auth = $auth;
             $this->timelineRepository = $tr;

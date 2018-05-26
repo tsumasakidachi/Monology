@@ -33,7 +33,7 @@ namespace Monology
             $this->auth = new Auth\Authentication($pdo);
             $this->auth->sessionPath = parse_url($this->settings['BaseUri'], PHP_URL_PATH);
             $this->auth->authenticate();
-            $this->container->set(Auth\Authentication::class, $this->auth);
+            $this->container->set(Auth\IAuthenticationService::class, $this->auth);
             $this->container->set(Services\ITimelineService::class, $this->container->get(Services\LocalTimelineService::class));
         }
 

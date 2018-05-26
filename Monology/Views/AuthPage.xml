@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<local:AuthPage
+ xmlns="use:Stage.Controls"
+ xmlns:local="use:Monology.Views"
+ lang="ja"
+ title="{resource SiteName}"
+ autoWireViewModel="true">
+    <local:AuthPage.head>
+        <HeadItems>
+            <Style uri="st-resource://Styles.css"/>
+            <Style uri="st-resource://Themes.css"/>
+            <Style uri="st-resource://AuthPageStyle.css"/>
+            <Script uri="st-resource://jquery.js"/>
+        </HeadItems>
+    </local:AuthPage.head>
+</local:AuthPage>

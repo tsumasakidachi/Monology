@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<local:TimelinePage
+ xmlns="use:Stage.Controls"
+ xmlns:local="use:Monology.Views"
+ lang="ja"
+ title="{resource SiteName}"
+ autoWireViewModel="true">
+    <local:TimelinePage.head>
+        <HeadItems>
+            <Style uri="{resource Styles}"/>
+            <Style uri="{resource Themes}"/>
+            <Style uri="st-resource://TimelinePageStyle.css"/>
+            <Script uri="st-resource://jquery.js"/>
+            <Script uri="st-resource://knockout-3.4.2.js"/>
+            <Script uri="st-resource://TimelinePageViewModel.js"/>
+        </HeadItems>
+    </local:TimelinePage.head>
+    <local:TimelinePage.content>
+        <div id="content">
+            <form id="sendingMessage" method="post" action="st-repos://message/create/" data-bind="submit: post" visibility="{binding auth.isAuthorized}">
+                <p id="submit">
+                    <textarea id="body" name="body" data-bind="value: body" cols="80" rows="4" autofocus="autofocus" required="required"/>
+                    <button type="submit" text="送信"/>
+                </p>
+            </form>
+            <div id="messages" class="listView vertical" data-bind="foreach: messages" data-uri-selection="st-repos://messages/" data-json="{binding messages, escape=true, converter={resource JSONEncodeConverter}}" visibility="{binding messages, converter={resource NotEmptyToBooleanConverter}}">
+                <div class="listViewItem">
+                    <p class="createdTime">
+                        <span data-bind="text: displayName"/>
+                        <span data-bind="text: createdTimeString"/>
+                    </p>
+                    <div class="body">
+                        <p data-bind="text: body"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </local:TimelinePage.content>
+</local:TimelinePage>

@@ -1,0 +1,8 @@
+/vendor
+/.vscode
+/composer.phar
+/composer.lock
+/Monology/Properties/Settings.json
+/Monology/Properties/Settings.Remote.json
+/DataBackupQuery.sql
+/SchemaBackupQuery.sql

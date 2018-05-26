@@ -1,0 +1,36 @@
+#contents header #pagetitle
+{
+    margin-bottom: 20px;
+}
+
+#contents .boxesPanel
+{
+    display: box;
+    display: -ms-box;
+    display: -moz-box;
+    display: -webkit-box;
+    box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+}
+
+#contents .boxesPanel .descriptionColumn
+{
+    margin-right: 40px;
+    max-width: 795px;
+}
+
+#contents .boxesPanel .descriptionColumn section:first-child > h1
+{
+    display: none;
+}
+
+#contents .boxesPanel .picturesColumn
+{
+}
+
+#contents .boxesPanel .picturesColumn section:first-child > h1
+{
+    display: none;
+}

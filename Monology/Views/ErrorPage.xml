@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<local:ErrorPage
+ xmlns="use:Stage.Controls"
+ xmlns:local="use:Monology.Views"
+ lang="ja"
+ title="{binding title, escape=true}"
+ httpHeader="{binding httpHeader}"
+ autoWireViewModel="true">
+    <local:ErrorPage.head>
+        <HeadItems>
+            <Style uri="st-resource://Styles.css"/>
+            <Style uri="st-resource://Themes.css"/>
+        </HeadItems>
+    </local:ErrorPage.head>
+    <local:ErrorPage.content>
+        <div id="content">
+            <h1 class="titleText" text="{binding title, escape=true}"/>
+            <p text="{binding message, escape=true}"/>
+            <p text="{binding stackTrace, escape=true" visibility="{binding stackTrace, converter={resource NotEmptyToBooleanConverter}}"/>
+        </div>
+    </local:ErrorPage.content>
+</local:ErrorPage>

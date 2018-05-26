@@ -1,0 +1,190 @@
+@charset 'UTF-8';
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* ページ */
+
+html,body
+{
+    margin: 0px;
+    height: 100%;
+    background-color: #f6f6f6;
+    font-family: 'Segoe UI', 'Meiryo', sans-serif;
+}
+
+a:link,
+a:visited
+{
+    color: #00B5B5;
+}
+
+a:active,
+a:hover
+{
+    color: #68D9D9;
+}
+
+#framework
+{
+    margin: 0px;
+    min-height: 100%;
+    position: relative;
+}
+
+#framework:last-child > *
+{
+    margin-bottom: 0px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* ヘッダ */
+
+#framework > header
+{
+    padding: 0px 80px;
+    display: flex;
+}
+
+#framework > header > .navigations
+{
+    flex: 1 1 auto;
+    display: flex;
+}
+
+#framework > header > .navigations #logo
+{
+    margin-bottom: 0px;
+    margin-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex: 0 0 auto;
+}
+
+#framework > header > .navigations #logo a:link,
+#framework > header > .navigations #logo a:visited
+{
+    color: #000000;
+}
+
+#framework > header > .navigations #logo a:active,
+#framework > header > .navigations #logo a:hover
+{
+    color: #303030;
+}
+
+#framework > header > .navigations .listView
+{
+    margin-bottom: 0px;
+    flex: 1 1 auto;
+}
+
+#framework > header > .navigations .listView .listViewItem
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#framework > header > .navigations .listView .listViewItem a:link,
+#framework > header > .navigations .listView .listViewItem a:visited
+{
+    color: #808080;
+}
+
+#framework > header > .navigations .listView .listViewItem a:active,
+#framework > header > .navigations .listView .listViewItem a:hover
+{
+    color: #909090;
+}
+
+#framework > header > .navigations .listView .listViewItem.selectedItem a:link,
+#framework > header > .navigations .listView .listViewItem.selectedItem a:visited
+{
+    color: #00B5B5;
+}
+
+#framework > header > .navigations .listView .listViewItem.selectedItem a:active,
+#framework > header > .navigations .listView .listViewItem.selectedItem a:hover
+{
+    color: #68D9D9;
+}
+
+#framework > header > .commands
+{
+    flex: 0 0 auto;
+}
+
+#framework > header > .commands a:link,
+#framework > header > .commands a:visited
+{
+    color: #808080;
+}
+
+#framework > header > .commands a:active,
+#framework > header > .commands a:hover
+{
+    color: #909090;
+}
+
+#framework > header > .commands .listView
+{
+    margin-bottom: 0px;
+}
+
+#framework > header > .commands .listView .listViewItem
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* ボディ */
+
+#content
+{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+    clear: both;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* フッタ */
+
+#framework > footer
+{
+    padding-left: 80px;
+    padding-right: 80px;
+    position: absolute;
+    bottom: 0px;
+    clear: both;
+    color: #999;
+}
+
+#framework > footer #contentInfo
+{
+    margin-left: 0px;
+    list-style-type: none;
+}
+
+#framework > footer #contentInfo li
+{
+    margin-right: 20px;
+    display: inline-block;
+}
+
+#framework > footer #contentInfo li:last-child
+{
+    margin-right: 0px;
+}
+
+#framework > footer #contentInfo a:link,
+#framework > footer #contentInfo a:visited
+{
+    color: inherit;
+}
+
+#framework > footer #contentInfo a:active,
+#framework > footer #contentInfo a:hover
+{
+    color: #68D9D9;
+}

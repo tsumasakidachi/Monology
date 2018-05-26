@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<local:App
+ xmlns="use:Stage.Controls"
+ xmlns:converters="use:Stage.Converters"
+ xmlns:local="use:Monology"
+ >
+    <local:App.resources>
+        <Text key="SiteName" value="monology"/>
+        <Text key="Styles" value="st-resource://Styles.css"/>
+        <Text key="Themes" value="st-resource://Themes.css"/>
+        <Text key="JQuery" value="st-resource://jquery.js.css"/>
+        <Text key="LoginPageUri" value="st-app://auth/login/"/>
+        <Text key="LogoutPageUri" value="st-app://auth/logout/"/>
+        <converters:BooleanNegationConverter key="BooleanNegationConverter"/>
+        <converters:EmptyToBooleanConverter key="EmptyToBooleanConverter"/>
+        <converters:NotEmptyToBooleanConverter key="NotEmptyToBooleanConverter"/>
+        <converters:JSONEncodeConverter key="JSONEncodeConverter"/>
+        <converters:JSONDecodeConverter key="JSONDecodeConverter"/>
+    </local:App.resources>
+</local:App>

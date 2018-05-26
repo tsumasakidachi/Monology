@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<local:MessagePage
+  xmlns="use:Stage.Controls"
+  xmlns:local="use:Monology.Views"
+  lang="ja"
+  title="{resource SiteName}"
+  autoWireViewModel="true">
+    <local:TimelinePage.head>
+        <HeadItems>
+            <Style uri="st-resource://Styles.css"/>
+            <Style uri="st-resource://Themes.css"/>
+            <Script uri="st-resource://jquery.js"/>
+        </HeadItems>
+    </local:TimelinePage.head>
+</local:MessagePage>

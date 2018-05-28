@@ -4,7 +4,7 @@ namespace Monology
 {
     $start = microtime(true);
 
-    // require_once './vendor/autoload.php';
+    require_once './vendor/autoload.php';
     require_once '../stage/Stage.php';
     
     use Stage\AppModel;
@@ -26,14 +26,26 @@ namespace Monology
         protected function onInitialize()
         {
             $this->registerUriScheme('st-repos', $this->settings['BaseUri'].'.repos/');
+            session_set_cookie_params(0, parse_url($this->settings['BaseUri'], PHP_URL_PATH));
 
             $pdo = new \PDO(sprintf('mysql:dbname=%s;host=localhost;charset=utf8mb4;', $this->settings['DatabaseName']), $this->settings['DatabaseUserName'], $this->settings['DatabasePassword']);
             $this->container->set(\PDO::class, $pdo);
-
-            $this->auth = new Auth\Authentication($pdo);
-            $this->auth->sessionPath = parse_url($this->settings['BaseUri'], PHP_URL_PATH);
-            $this->auth->authenticate();
+            
+            $this->auth = $this->container->get(Auth\Authentication::class);
+            $this->auth->setSessionPath(parse_url($this->settings['BaseUri'], PHP_URL_PATH));
+            $this->auth->isSessionValid();
             $this->container->set(Auth\IAuthenticationService::class, $this->auth);
+
+            $accounts = new Repositories\DatabaseAccountRepository($pdo, $this->auth);
+            $this->container->set(Repositories\IAccountRepository::class, $accounts);
+
+            $twitter = new Services\TwitterServiceProxy(
+                $accounts,
+                $this->settings['ApplicationCallbackUri'],
+                $this->settings['ApplicationKey'],
+                $this->settings['ApplicationSecret']);
+            $this->container->set(Services\ITwitterServiceProxy::class, $twitter);
+
             $this->container->set(Services\ITimelineService::class, $this->container->get(Services\LocalTimelineService::class));
         }
 
@@ -58,6 +70,24 @@ namespace Monology
                 $this->view->render();
             }
             // Views
+            else if($path == 'account/connect/' && isset($_REQUEST['oauth_token']) && isset($_REQUEST['oauth_verifier']))
+            {
+                $this->display('Accounts', [
+                    'command' => 'connect',
+                    'oauthToken' => $_REQUEST['oauth_token'],
+                    'oauthVerifier' => $_REQUEST['oauth_verifier']
+                    ]);
+            }
+            else if($path == 'account/connect/')
+            {
+                $this->display('Accounts', [
+                    'command' => 'connect'
+                ]);
+            }
+            else if($path == 'account/')
+            {
+                $this->display('Accounts', []);
+            }
             else if($path == 'auth/login/')
             {
                 $this->display('Auth', ['mode' => 'login']);

@@ -41,7 +41,7 @@ namespace Monology\Services
 
         public function getStatus(string $statusId): Models\Status
         {
-            throw new \InvalidMethodCallException('LocalTimelineService::getStatus');
+            throw new \BadMethodCallException('LocalTimelineService::getStatus');
         }
 
         public function createStatus(string $body) : void
@@ -59,7 +59,7 @@ namespace Monology\Services
 
         public function deleteStatus(string $statusId) : void
         {
-            throw new \InvalidMethodCallException('LocalTimelineService::deleteStatus');
+            throw new \BadMethodCallException('LocalTimelineService::deleteStatus');
         }
     }
 }

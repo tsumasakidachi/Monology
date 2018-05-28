@@ -7,7 +7,7 @@ namespace Monology\ViewModels
 
     class AuthPageViewModel extends Wire\AuthViewModel
     {
-        public function onRequested(Array $params)
+        public function onRequested(array $params)
         {
             // if($_SERVER['REQUEST_METHOD'] == 'POST')
             {
@@ -18,6 +18,20 @@ namespace Monology\ViewModels
                         break;
                     case 'login':
                         $this->mode = 'login';
+
+                        /*
+                        if(array_key_exists('oauthToken', $params))
+                        {
+                            $this->auth->authenticate($params);
+                            header('Location: ' . $uri);
+                        }
+                        else
+                        {
+                            $uri = $this->auth->getAuthenticationUri();
+                            header('Location: ' . $uri);
+                        }
+                        */
+                        
                         break;
                 }
             }

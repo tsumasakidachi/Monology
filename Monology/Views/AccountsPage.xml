@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<local:AccountsPage
+ xmlns="use:Stage.Controls"
+ xmlns:local="use:Monology.Views"
+ lang="ja"
+ title="接続"
+ autoWireViewModel="true">
+    <local:AccountsPage.head>
+        <HeadItems>
+            <Style uri="{resource Styles}"/>
+            <Style uri="{resource Themes}"/>
+            <Script uri="st-resource://jquery.js"/>
+            <Script uri="st-resource://knockout-3.4.2.js"/>
+        </HeadItems>
+    </local:AccountsPage.head>
+    <local:AccountsPage.content>
+        <div id="content">
+            <h1 class="titleText" text="アカウント"/>
+            <p>
+                <a href="./connect/" text="新しいアカウントを接続"/>
+            </p>
+        </div>
+    </local:AccountsPage.content>
+</local:AccountsPage>

@@ -41,7 +41,7 @@ namespace Monology\Services
             }
             else if(count($this->users) > 0)
             {
-                $this->connection = new TwitterOAuth($this->key, $this->secret, $this->users[$this->currentUserId]['accessToken'], $this->users[$this->currentUserId]['accessTokenSecre']);
+                $this->connection = new TwitterOAuth($this->key, $this->secret, $this->users[$this->currentUserId]['accessToken'], $this->users[$this->currentUserId]['accessTokenSecret']);
             }
             else
             {
@@ -141,6 +141,22 @@ namespace Monology\Services
         {
             throw new \BadMethodCallException('TwitterServiceProxy::getCurrentUser');
         }
+
+        #region リクエスト
+
+        public function get(string $endPoint, array $params)
+        {
+            $vars = func_get_args();
+            return $this->connection->get(...$vars);
+        }
+
+        public function post(string $endPoint, array $params)
+        {
+            $vars = func_get_args();
+            return $this->connection->post(...$vars);
+        }
+
+        #endregion
     }
 }
 

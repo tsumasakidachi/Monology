@@ -46,7 +46,7 @@ namespace Monology
                 $this->settings['ApplicationSecret']);
             $this->container->set(Services\ITwitterServiceProxy::class, $twitter);
 
-            $this->container->set(Services\ITimelineService::class, $this->container->get(Services\LocalTimelineService::class));
+            $this->container->set(Services\ITimelineService::class, $this->container->get(Services\TwitterTimelineService::class));
         }
 
         protected function onRequest($method, $uri)

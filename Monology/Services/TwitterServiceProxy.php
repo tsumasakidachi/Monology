@@ -15,7 +15,7 @@ namespace Monology\Services
         private $connection = null;
 
         private $currentUserId = null;
-        private $users = [];
+        private $accounts = [];
 
         public function __construct(Repositories\IAccountRepository $ar, string $callbackUri, string $key, string $secret)
         {
@@ -27,11 +27,11 @@ namespace Monology\Services
             try
             {
                 $this->currentUserId = $this->accountRepository->getCurrentUserId();
-                $this->users[$this->currentUserId] = $this->accountRepository->getAccessToken($this->currentUserId);
+                $this->accounts[$this->currentUserId] = $this->accountRepository->getAccessToken($this->currentUserId);
             }
             catch(\Exception $ex)
             {
-                $this->users = [];
+                $this->accounts = [];
             }
 
             // if(false)
@@ -39,9 +39,9 @@ namespace Monology\Services
             {
                 $this->connection = new TwitterOAuth($this->key, $this->secret, $_COOKIE['oauthTokenOnetime'], $_COOKIE['oauthTokenSecretOnetime']);
             }
-            else if(count($this->users) > 0)
+            else if(count($this->accounts) > 0)
             {
-                $this->connection = new TwitterOAuth($this->key, $this->secret, $this->users[$this->currentUserId]['accessToken'], $this->users[$this->currentUserId]['accessTokenSecret']);
+                $this->connection = new TwitterOAuth($this->key, $this->secret, $this->accounts[$this->currentUserId]['accessToken'], $this->accounts[$this->currentUserId]['accessTokenSecret']);
             }
             else
             {
